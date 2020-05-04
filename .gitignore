@@ -1,3 +1,4 @@
 /target
 /my_crate/target
 **/*.rs.bk
+/.idea
