@@ -659,5 +659,3 @@ use miscl::my_crate::talk::dog;
 println!("{}", cat::hello());
 println!("{}", dog::hello());
 ```
-# Opensource
-* [How to Attract Talent to Your Open Source Project](https://medium.com/swlh/how-to-attract-talent-to-your-open-source-project-4bd4991e4a86)
