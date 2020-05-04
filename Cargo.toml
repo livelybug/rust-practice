@@ -1,0 +1,8 @@
+[package]
+name = "Hello"
+version = "0.1.0"
+authors = ["livelybug <livelybug@gmail.com>"]
+
+[dependencies]
+rand = "0.7"
+my_crate = { path = "my_crate" }

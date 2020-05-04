@@ -1,0 +1,1 @@
+pub fn hello() -> String {"cat hello".to_string()}

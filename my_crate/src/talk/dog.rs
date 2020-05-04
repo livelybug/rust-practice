@@ -1,0 +1,1 @@
+pub fn hello() -> String {"dog hello".to_string()}
