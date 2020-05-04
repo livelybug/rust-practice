@@ -610,5 +610,54 @@ str1 is Mutex { data: "str1" }
 str3 is ""
 str1 is Mutex { data: "" }
 ```
+## Misc
+### Use 3rd party Crate
+* Cargo.toml
+```toml
+[dependencies]
+rand = "0.7"
+```
+
+```rust
+extern crate rand;
+use miscl::rand::prelude::*;
+
+let x:u8 = random();
+let y:bool = random();
+println!("x = {}, y = {}", x, y);
+```
+
+### Create Crate
+* Create crate structure
+```bash
+rust-practice/my_crate$ tree
+.
+├── Cargo.lock
+├── Cargo.toml
+└── src
+    ├── lib.rs
+    └── talk
+        ├── cat.rs
+        └── dog.rs
+```
+* Build the crate 
+```bash
+rust-practice/my_crate$ cargo build
+```
+* Cargo.toml
+```toml
+[dependencies]
+my_crate = { path = "my_crate" }
+```
+
+* Invoke the crate
+```rust
+extern crate my_crate;
+use miscl::my_crate::talk::cat;
+use miscl::my_crate::talk::dog;
+
+println!("{}", cat::hello());
+println!("{}", dog::hello());
+```
 # Opensource
 * [How to Attract Talent to Your Open Source Project](https://medium.com/swlh/how-to-attract-talent-to-your-open-source-project-4bd4991e4a86)
