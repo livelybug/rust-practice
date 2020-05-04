@@ -1,4 +1,11 @@
 [TOC]
+# How to run
+* run
+```commandline
+cargo run
+```
+* key in ```1234``` , then enter
+
 # Rust Language Basis
 ## Type and Variables
 ### Core Data Type
