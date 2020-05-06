@@ -1,3 +1,14 @@
+//! The major function `circular_reference()` is not a demo of how to use circular reference `RefCell`.
+//! Instead, the code demonstrates how to prevent using `RefCell`.
+//! The approach is introducing data redundancies for many to many relationship.
+//! # Example
+//! ```
+//!     let john = Student{name: "John".into()};
+//!     let course1 = Course{name: "Rust Course".into()};
+//!     let enroll1 = Enrollment{course: &course1, student: &john};
+//!     let mut platform1 = Platform::new("platform1".into());
+//!     platform1.add(enroll1);
+//! ```
 
 struct Student {
     name: String
@@ -23,6 +34,7 @@ struct Platform<'a> {
     enrolls: Vec<Enrollment<'a>>
 }
 
+/// Online course platform such as cousera, udemy...
 impl<'a> Platform<'a> {
     fn new(name: String) -> Platform<'a> {
         Platform{name, enrolls: vec![] }
@@ -41,7 +53,10 @@ impl Student {
             .collect()
     }
 }
-
+/// Create a student `john`;
+/// Create a course `Rust Course`;
+/// `john` enroll in the course `Rust Course`;
+/// The enrollment happens on platform `platform1`;
 pub fn circular_reference() {
     println!("circular_reference ---------------------");
     let john = Student{name: "John".into()};

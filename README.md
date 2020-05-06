@@ -666,3 +666,9 @@ use miscl::my_crate::talk::dog;
 println!("{}", cat::hello());
 println!("{}", dog::hello());
 ```
+
+## Rust Doc
+* Generate rust doc, i.e.
+```commandline
+rustdoc src/circular_reference.rs 
+```
