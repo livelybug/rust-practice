@@ -1,5 +1,6 @@
 #![allow(dead_code)]
 #![allow(unused_variables)]
+#[feature(async_await)]
 mod stack_heap;
 mod control_flow;
 mod data_structure;
@@ -10,6 +11,7 @@ mod traits;
 mod variable_access;
 mod circular_reference;
 mod miscl;
+mod async_rust;
 use std::mem;
 
 
@@ -60,7 +62,9 @@ fn global_var()
     }
 }
 
-fn main() {
+#[tokio::main]
+async fn main() {
+    async_rust::async_rust();
     miscl::miscl();
     circular_reference::circular_reference();
     variable_access::variable_access();

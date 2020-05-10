@@ -105,6 +105,9 @@ fn sum_product(x:u16, y:u16) -> (u16, f32) {
     (x + y, 1.0 * 3.2)
 }
 
+// struct tuple
+struct Colour(u8, u8, u8);
+
 fn tuple_test() {
     println!("tuple test ---------------------------");
     let x = 3;
@@ -120,6 +123,9 @@ fn tuple_test() {
     println!("last element is {}", (combined.1).1); //nested tuple
 
     let single_ele_tpl = (32, ); //single element tuple, python similarity
+
+    let red = Colour(255, 0, 0);
+    println!("red is {}, {}, {}", red.0, red.1, red.2);
 }
 
 struct Point_g<T, V> {
