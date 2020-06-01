@@ -1,19 +1,20 @@
 #![allow(dead_code)]
 #![allow(unused_variables)]
 #[feature(async_await)]
-mod stack_heap;
-mod control_flow;
-mod data_structure;
-mod std_collections;
-mod characters;
-mod functions;
-mod traits;
-mod variable_access;
-mod circular_reference;
-mod miscl;
-mod async_rust;
-mod advanced_type;
-mod closure_test;
+mod basis;
+use crate::basis::stack_heap;
+use crate::basis::control_flow;
+use crate::basis::data_structure;
+use crate::basis::std_collections;
+use crate::basis::characters;
+use crate::basis::functions;
+use crate::basis::traits;
+use crate::basis::variable_access;
+use crate::basis::circular_reference;
+use crate::basis::miscl;
+use crate::basis::async_rust;
+use crate::basis::advanced_type;
+use crate::basis::closure_test;
 use std::mem;
 
 
