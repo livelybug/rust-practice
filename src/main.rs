@@ -12,6 +12,8 @@ mod variable_access;
 mod circular_reference;
 mod miscl;
 mod async_rust;
+mod advanced_type;
+mod closure_test;
 use std::mem;
 
 
@@ -64,6 +66,8 @@ fn global_var()
 
 #[tokio::main]
 async fn main() {
+    closure_test::closure_test();
+    advanced_type::advanced_type();
     async_rust::async_rust();
     miscl::miscl();
     circular_reference::circular_reference();

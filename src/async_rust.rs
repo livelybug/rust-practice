@@ -17,7 +17,7 @@ async fn http_request() {
 
 pub fn async_rust() {
     println!("async_rust ---------------");
-    block_on(http_request());
+    // block_on(http_request());  //unable to restrict with timeout due to compilation error of futures 0.3.5
     let future = hello_world(); // Nothing is printed
     block_on(future); // `future` is run and "hello, world!" is printed
 }
