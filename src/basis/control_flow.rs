@@ -1,5 +1,4 @@
 #![allow(dead_code)]
-use std::mem;
 use std::io::stdin;
 
 fn if_statement(temp:i32){
@@ -21,7 +20,7 @@ fn for_loop()
         println!("x = {}", x);
     }
     for (pos, y) in (1..).enumerate() { // .. means infinite
-        if(y > 8) { break; }
+        if y > 8 { break; }
         println!("y = {}, pos = {}", y, pos);
     }
 }
@@ -31,7 +30,7 @@ fn match_statement(countrycode:i32){
         44 => "UK",
         46 => "Sweden",
         7 => "Russia",
-        z @ 1...999 => "unknown",  // 3 dots is obsolet now, replaced by "..="
+        z @ 1..=999 => "unknown",  // 3 dots is obsolet now, replaced by "..="
         _ => "invalid"
     };
     println!("the country is {}", country);

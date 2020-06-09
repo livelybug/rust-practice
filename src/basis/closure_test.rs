@@ -1,5 +1,5 @@
 use std::sync::{Arc, Mutex};
-use std::{thread, time};
+use std::thread;
 use std::thread::JoinHandle;
 
 fn closure_() {

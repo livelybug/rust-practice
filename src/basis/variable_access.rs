@@ -113,9 +113,9 @@ fn atomic_ref_count() {
 
 fn mutex_thread_safe() {
     println!("mutex_thread_safe -----------------");
-    let mut str1 = Arc::new(Mutex::new("str1".to_string()));
+    let str1 = Arc::new(Mutex::new("str1".to_string()));
     println!("str1 is {:?}", str1);
-    let mut str2 =str1.clone();
+    let str2 =str1.clone();
     let thread1 = thread::spawn(move || {
         let mut str3 = str2.lock().unwrap();
         str3.clear();

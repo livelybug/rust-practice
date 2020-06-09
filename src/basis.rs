@@ -11,3 +11,5 @@ pub mod miscl;
 pub mod async_rust;
 pub mod advanced_type;
 pub mod closure_test;
+pub mod smart_pointer;
+pub mod concurrency_test;

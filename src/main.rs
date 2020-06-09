@@ -1,6 +1,6 @@
 #![allow(dead_code)]
 #![allow(unused_variables)]
-#[feature(async_await)]
+
 mod basis;
 use crate::basis::stack_heap;
 use crate::basis::control_flow;
@@ -15,6 +15,8 @@ use crate::basis::miscl;
 use crate::basis::async_rust;
 use crate::basis::advanced_type;
 use crate::basis::closure_test;
+use crate::basis::smart_pointer;
+use crate::basis::concurrency_test;
 use std::mem;
 
 
@@ -67,6 +69,8 @@ fn global_var()
 
 #[tokio::main]
 async fn main() {
+    concurrency_test::concurrency_test();
+    smart_pointer::smart_pointer_test();
     closure_test::closure_test();
     advanced_type::advanced_type();
     async_rust::async_rust();

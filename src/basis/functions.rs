@@ -24,7 +24,7 @@ fn closure_func_var() {
     let sh = say_hi;
     sh();
 
-    let mut one = 1;
+    let one = 1;
     let plus_one = |x:i32| -> i32 {x + 1};
     let plus_one_1 = |x| {x + one};  // implicit type
     println!("{} + 1 = {}", 3, plus_one_1(3));
@@ -61,8 +61,8 @@ fn higher_order_function() {
     let mut sum = 0;
     for i in 0.. {
         let isq = i*i;
-        if(isq > limit) {break}
-        else if (isq % 2 == 0) {sum += isq;}
+        if isq > limit {break}
+        else if isq % 2 == 0 {sum += isq;}
     }
 
     let sum2 =

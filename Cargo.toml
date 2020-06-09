@@ -1,5 +1,5 @@
 [package]
-name = "Hello"
+name = "hello"
 version = "0.1.0"
 authors = ["livelybug <livelybug@gmail.com>"]
 edition = "2018"

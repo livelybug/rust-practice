@@ -31,7 +31,7 @@ fn enums(c:Color) {
         Color::RGBColor(0,0,0) => println!("black"),
         Color::RGBColor(r,g,b) => println!("r,g,b({}, {}, {})", r, g, b),
         Color::Cmyk{cyan:_, magenta:_, yellow:_, black:255} => println!("color is black"),
-        Color::Cmyk{black:255, ..} => println!("color is black"),  // means the same as the line above
+        Color::Cmyk{black:255, ..} => println!("color is black"),  // means the same as the line above, cause unreachable pattern warning
         _ => println!("unkown color"),
     }
 }
@@ -42,7 +42,7 @@ union IntOrFloat
     f: f32
 }
 
-fn union_test(mut iof:IntOrFloat){
+fn union_test(iof:IntOrFloat){
     println!("union_test ---------------------");
     let value = unsafe {iof.i};
 //    let value = iof.i;
@@ -73,14 +73,14 @@ fn option_test(x:f32, y:f32) {
 fn array_test() {  // fixed size
     println!("array test ----------------------");
     let mut a:[i32;5] = [1,2,3,4,5];
-    let mut b = [1,2,3,4,5];
+    let b = [1,2,3,4,5];
     a[0] = 322;
     println!("{:?}", a);  // rust style loop, not seen in other languages!
     if a != [1,2,3,4,5] {
         println!("not equal [1,2,3,4,5]") // not seen in other languages!
     }
 
-    let mut b = [1u16; 10]; // "1" is initial value, "u16" is type casting
+    let b = [1u16; 10]; // "1" is initial value, "u16" is type casting
     println!("{:?}", b);  //[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
     let c:[[u16; 3]; 2] = [
@@ -112,7 +112,7 @@ fn tuple_test() {
     println!("tuple test ---------------------------");
     let x = 3;
     let y = 4;
-    let mut sp = {(x + y, x as f32 * y as f32 )};
+    let sp = {(x + y, x as f32 * y as f32 )};
     println!("{:?}", sp);
     println!("{0} + {1} = {2}, {0} * {1} = {3}", x, y, sp.0, sp.1);
     // destructure
@@ -128,21 +128,21 @@ fn tuple_test() {
     println!("red is {}, {}, {}", red.0, red.1, red.2);
 }
 
-struct Point_g<T, V> {
+struct PointG<T, V> {
     x: T,
     y: V
 }
 
-struct Line_g<T,V> {
-    start: Point_g<T,V>,
-    end: Point_g<T,V>
+struct LineG<T,V> {
+    start: PointG<T,V>,
+    end: PointG<T,V>
 }
 
 fn generic_test() {
-    let a:Point_g<i32, i16> = Point_g{x:2, y:4};
-    let b = Point_g{x:2, y:4};
+    let a: PointG<i32, i16> = PointG {x:2, y:4};
+    let b = PointG {x:2, y:4};
 
-    let line_c = Line_g{start: a, end: b};
+    let line_c = LineG {start: a, end: b};
 }
 
 pub fn data_structure() {
@@ -155,7 +155,7 @@ pub fn data_structure() {
     println!("{:?}", data); // [198, 198, 3, 4, 5]
 
     array_test();
-    let mut x = 3.0;
+    let x = 3.0;
     let mut y = 0.0;
     option_test(x, y);
     y = 2.0;

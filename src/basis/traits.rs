@@ -42,6 +42,7 @@ fn print_name3<T>(obj: T) where T: Animal + Debug {
 }
 
 fn trait_parameter() {
+    println!("trait_parameter -------------");
     let animal = Human{name: "John4"};
     print_name(animal);
     let animal2 = Human{name: "John5"};
@@ -123,12 +124,12 @@ impl<T> PartialEq for Complex<T> where T: PartialEq {
 
 
 fn operator_overload() {
-    let mut a = Complex::new(1, 2);
-    let mut b = Complex::new(2, 4);
+    let a = Complex::new(1, 2);
+    let b = Complex::new(2, 4);
     println!("addition = {:?}", a + b);
 
     let mut a2 = Complex::new(1, 2);
-    let mut b2 = Complex::new(2, 4);
+    let b2 = Complex::new(2, 4);
     a2 += b2;
     println!("addassign = {:?}", a2);
 }
